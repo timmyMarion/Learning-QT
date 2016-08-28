@@ -1,7 +1,7 @@
 # import required modules
 
 import sys, time
-from PySide.QtGui import QApplication, QMainWindow, QStatusBar, QProgressBar, QLabel
+from PySide.QtGui import QApplication, QMainWindow, QStatusBar, QProgressBar, QLabel, QTextEdit, QIcon, QKeySequence
 
 class MainWindow(QMainWindow):
     """ Create the Application Main Window CLass
@@ -34,14 +34,23 @@ class MainWindow(QMainWindow):
             self.progressBar.setValue(self.progressBar.value() + 1)
         self.statusLabel.setText('Ready')
 
+    def SetupCompponents(self):
+        """ Setting the Central Widget
+        """
+        textEdit = QTextEdit()
+        self.setCentralWidget(textEdit)
+
+    def
+
 if __name__ == '__main__':
     # Exception Handeling
     try:
         myApp = QApplication(sys.argv)
         mainWindow = MainWindow()
-        mainWindow.CreateStatusBar()
+#        mainWindow.CreateStatusBar()
+        mainWindow.SetupCompponents()
         mainWindow.show()
-        mainWindow.ShowProgress()
+#        mainWindow.ShowProgress()
         myApp.exec_()
         sys.exit(0)
     except NameError:
