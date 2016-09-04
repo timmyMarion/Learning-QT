@@ -13,7 +13,7 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Application Title Here")
         self.setGeometry(300, 250, 400, 300)
 
-    def SetupCompponents(self):
+    def SetupComponents(self):
         """ Setting the Central Widget
         """
         self.myStatusBar = QStatusBar()
@@ -30,7 +30,13 @@ class MainWindow(QMainWindow):
         self.editMenu.addSeparator()
         self.editMenu.addAction(self.pasteAction)
         self.helpMenu.addAction(self.aboutAction)
+        self.helpMenu.addSeparator()
         self.helpMenu.addAction(self.aboutCopyrightAction)
+        self.CreateToolBar()
+        self.mainToolBar.addAction(self.newAction)
+        self.mainToolBar.addSeparator()
+        self.mainToolBar.addAction(self.copyAction)
+        self.mainToolBar.addAction(self.pasteAction)
 
     # Slots called when the action menus are triggered
     def newFile(self):
@@ -82,12 +88,17 @@ class MainWindow(QMainWindow):
         self.viewMenu = self.menuBar().addMenu("&View")
         self.helpMenu = self.menuBar().addMenu("&Help")
 
+    def CreateToolBar(self):
+        """ Function to create tool bar
+        """
+        self.mainToolBar = self.addToolBar('Main')
+
 if __name__ == '__main__':
     # Exception Handeling
     try:
         myApp = QApplication(sys.argv)
         mainWindow = MainWindow()
-        mainWindow.SetupCompponents()
+        mainWindow.SetupComponents()
         mainWindow.show()
         myApp.exec_()
         sys.exit(0)
