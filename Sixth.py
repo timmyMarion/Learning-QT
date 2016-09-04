@@ -7,7 +7,7 @@ class MainWindow(QMainWindow):
     """ Create the Application Main Window CLass
     """
     def __init__(self):
-        """ Constructo FUnction
+        """ Constructor FUnction
         """
         QMainWindow.__init__(self)
         self.setWindowTitle("Application Title Here")
@@ -40,17 +40,15 @@ class MainWindow(QMainWindow):
         textEdit = QTextEdit()
         self.setCentralWidget(textEdit)
 
-    def
-
 if __name__ == '__main__':
     # Exception Handeling
     try:
         myApp = QApplication(sys.argv)
         mainWindow = MainWindow()
-#        mainWindow.CreateStatusBar()
+        mainWindow.CreateStatusBar()
         mainWindow.SetupCompponents()
         mainWindow.show()
-#        mainWindow.ShowProgress()
+        mainWindow.ShowProgress()
         myApp.exec_()
         sys.exit(0)
     except NameError:
@@ -59,5 +57,4 @@ if __name__ == '__main__':
         print("Closing Window...")
     except Exception:
         print(sys.exc_info()[1])
-
 
